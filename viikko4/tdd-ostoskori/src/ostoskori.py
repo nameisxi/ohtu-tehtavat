@@ -18,8 +18,13 @@ class Ostoskori:
         return 0
 
     def lisaa_tuote(self, lisattava: Tuote):
-        # lisää tuotteen
-        pass
+        for ostos in self._ostokset:
+            if ostos.tuotteen_nimi() == lisattava.nimi():
+                ostos.muuta_lukumaaraa(1)
+                return
+
+        self._ostokset.append(Ostos(lisattava))
+
 
     def poista_tuote(self, poistettava: Tuote):
         # poistaa tuotteen
