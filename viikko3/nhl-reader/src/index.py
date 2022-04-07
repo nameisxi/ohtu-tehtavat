@@ -26,7 +26,9 @@ def main():
     print(f'Players from FIN {datetime.datetime.now()}')
     print()
 
-    for player in players:
+    players = players
+
+    for player in sorted(players, key=lambda x: x.points, reverse=True):
         print(player)
 
 if __name__ == "__main__":
