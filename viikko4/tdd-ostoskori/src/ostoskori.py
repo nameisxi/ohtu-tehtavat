@@ -42,8 +42,7 @@ class Ostoskori:
             self._ostokset.remove(deletable_ostos)
 
     def tyhjenna(self):
-        pass
-        # tyhjentää ostoskorin
+        self._ostokset = []
 
     def ostokset(self):
         return self._ostokset
