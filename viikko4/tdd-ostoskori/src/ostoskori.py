@@ -15,7 +15,12 @@ class Ostoskori:
         return count
 
     def hinta(self):
-        return 0
+        price = 0
+
+        for ostos in self._ostokset:
+            price += ostos.hinta()
+            
+        return price
 
     def lisaa_tuote(self, lisattava: Tuote):
         for ostos in self._ostokset:
