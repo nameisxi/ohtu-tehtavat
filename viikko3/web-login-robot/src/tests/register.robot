@@ -33,6 +33,33 @@ Register With Nonmatching Password And Password Confirmation
     Submit Credentials
     Register Should Fail With Message  Passwords must be match
 
+Login After Successful Registration
+    Set Username  testinen
+    Set Password  testi1234
+    Set Password Confirmation  testi1234
+    Submit Credentials
+    Register Should Succeed
+    Go To Login Page
+    Login Page Should Be Open
+    Set Username  testinen
+    Set Password  testi1234
+    Click Button  Login
+    Main Page Should Be Open
+
+Login After Failed Registration
+    Set Username  testinen22
+    Set Password  testi1234
+    Set Password Confirmation  testi1234
+    Submit Credentials
+    Register Should Fail With Message  Username can only contain letters a to z
+    Go To Login Page
+    Login Page Should Be Open
+    Set Username  testinen22
+    Set Password  testi1234
+    Click Button  Login
+    Login Page Should Be Open
+    Page Should Contain  Invalid username or password
+
 *** Keywords ***
 Register Should Succeed
     Home Page After Registeing Should Be Open
