@@ -44,7 +44,7 @@ class Kayttoliittyma:
             master=self._root,
             text="Kumoa",
             state=constants.DISABLED,
-            command=lambda: self._kumoa()
+            command=lambda: self._kumous()
         )
 
         tulos_teksti.grid(columnspan=4)
@@ -77,21 +77,21 @@ class Kayttoliittyma:
 
 
     def _summa(self):
-        arvo = _syote()
+        arvo = self._syote()
         self._sovellus.plus(arvo)
         self._paivita_tila()
 
     def _erotus(self):
-        arvo = _syote()
+        arvo = self._syote()
         self._sovellus.miinus(arvo)
         self._paivita_tila()
 
 
     def _nollaus(self):
-        arvo = _syote()
-        self._sovellus.nollaa(arvo)
+        self._sovellus.nollaa()
         self._paivita_tila()
 
-    def _kumous():
-        pass
+    def _kumous(self):
+        self._sovellus.aseta_arvo(self._sovellus.previous_tulos)
+        self._paivita_tila()
 
